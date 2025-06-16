@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "newsclip_personal_profile_ms.client", "newsclip_personal_profile_ms.client\newsclip_personal_profile_ms.client.esproj", "{6A97C09D-06D0-252C-31D5-1964EB10AE49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "newsclip_personal_profile_ms.Server", "newsclip_personal_profile_ms.Server\newsclip_personal_profile_ms.Server.csproj", "{CA37788E-3912-4D8E-8DE7-F35A13D30439}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A97C09D-06D0-252C-31D5-1964EB10AE49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A97C09D-06D0-252C-31D5-1964EB10AE49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A97C09D-06D0-252C-31D5-1964EB10AE49}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6A97C09D-06D0-252C-31D5-1964EB10AE49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A97C09D-06D0-252C-31D5-1964EB10AE49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A97C09D-06D0-252C-31D5-1964EB10AE49}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CA37788E-3912-4D8E-8DE7-F35A13D30439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA37788E-3912-4D8E-8DE7-F35A13D30439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA37788E-3912-4D8E-8DE7-F35A13D30439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA37788E-3912-4D8E-8DE7-F35A13D30439}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46763A44-7C86-469B-99C9-6C79839936B2}
+	EndGlobalSection
+EndGlobal

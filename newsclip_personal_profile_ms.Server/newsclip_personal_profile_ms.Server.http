@@ -1,0 +1,6 @@
+@newsclip_personal_profile_ms.Server_HostAddress = http://localhost:5226
+
+GET {{newsclip_personal_profile_ms.Server_HostAddress}}/profiledata/
+Accept: application/json
+
+###
