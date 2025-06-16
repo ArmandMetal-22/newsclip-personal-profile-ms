@@ -23,6 +23,8 @@
     public class Experience
     {
         public int Id { get; set; }
+        public int ProfileId { get; set; }  
+        public ProfileData? Profile { get; set; }
         public string? JobTitle { get; set; }
         public string? CompanyName { get; set; }
         public DateTime StartDate { get; set; }
@@ -33,6 +35,8 @@
     public class Education
     {
         public int Id { get; set; }
+        public int ProfileId { get; set; }
+        public ProfileData? Profile { get; set; }
         public string? Degree { get; set; }
         public string? InstitutionName { get; set; }
         public DateTime StartDate { get; set; }
@@ -43,6 +47,8 @@
     public class Skill
     {
         public int Id { get; set; }
+        public int ProfileId { get; set; }
+        public ProfileData? Profile { get; set; }
         public string? Name { get; set; }
         public string? Proficiency { get; set; } // e.g., Beginner, Intermediate, Advanced
     }

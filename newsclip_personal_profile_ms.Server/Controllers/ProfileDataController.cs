@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using newsclip_personal_profile_ms.Server;
 
 namespace newsclip_personal_profile_ms.Server.Controllers
@@ -74,6 +75,63 @@ namespace newsclip_personal_profile_ms.Server.Controllers
                     }
                 }
             };
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SaveProfile([FromBody] ProfileData profile, [FromServices] ProfileDbContext db)
+        {
+
+            var existing = await db.Profiles
+                .Include(p => p.Skills)
+                .Include(p => p.WorkExperiences)
+                .Include(p => p.EducationHistory)
+                .FirstOrDefaultAsync(p => p.Id == profile.Id);
+
+            if (existing == null)
+            {
+                profile.Id = 0;
+
+                foreach (var skill in profile.Skills)
+                    skill.Id = 0;
+
+                foreach (var exp in profile.WorkExperiences)
+                    exp.Id = 0;
+
+                foreach (var edu in profile.EducationHistory)
+                    edu.Id = 0;
+
+                db.Profiles.Add(profile);
+            }
+            else
+            {
+                db.Entry(existing).CurrentValues.SetValues(profile);
+                // Update child collections as needed (remove old, add new, update existing)
+                // For brevity, you may want to clear and re-add for now
+                db.Skills.RemoveRange(existing.Skills);
+                db.Experiences.RemoveRange(existing.WorkExperiences);
+                db.Educations.RemoveRange(existing.EducationHistory);
+
+                existing.Skills = profile.Skills;
+                existing.WorkExperiences = profile.WorkExperiences;
+                existing.EducationHistory = profile.EducationHistory;
+            }
+
+            try
+            {
+                var result = await db.SaveChangesAsync();
+                Console.WriteLine($"Rows affected: {result}");
+                return Ok(new { message = "Saved", rowsAffected = result });
+            }
+            catch (DbUpdateException dbEx)
+            {
+                Console.WriteLine("DbUpdateException: " + dbEx.Message);
+                return BadRequest(new { error = "Database update failed", details = dbEx.InnerException?.Message ?? dbEx.Message });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("General Exception: " + ex.Message);
+                return StatusCode(500, new { error = "Server error", details = ex.Message });
+            }
         }
     }
 }

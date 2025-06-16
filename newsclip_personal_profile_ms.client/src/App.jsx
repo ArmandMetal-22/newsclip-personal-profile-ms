@@ -49,13 +49,20 @@ function App() {
         });
     };
 
-    const handleSave = () => {
+    async function handleSave() {
         const updatedProfiles = [...profiles];
         updatedProfiles[editIndex] = editProfile;
         setProfiles(updatedProfiles);
         setEditIndex(null);
         setEditProfile(null);
-    };
+
+        // Save to backend
+        await fetch('profiledata', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(editProfile)
+        });
+    }
 
     // Modal open handlers
     const openAddSkill = () => {
