@@ -1,1 +1,28 @@
+# Ignore build outputs
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# VS specific
 .vs/
+*.user
+*.suo
+
+# Node (React frontend)
+node_modules/
+dist/
+build/
+.vite/
+
+# Environment & secrets
+.env
+*.secret
+
+# OS-specific
+.DS_Store
+Thumbs.db
+/newsclip_personal_profile_ms.Server/obj/Debug/net8.0/ref/newsclip_personal_profile_ms.Server.dll
